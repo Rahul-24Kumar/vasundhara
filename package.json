@@ -1,16 +1,39 @@
 {
   "name": "vasundhara",
   "version": "1.0.0",
-  "description": "",
+  "description": "A backend server for the Vasundhara website",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "webpack",
+    "lint": "eslint .",
+    "test": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "express",
+    "backend",
+    "server",
+    "website"
+  ],
   "author": "Rahul",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rahul-24Kumar/vasundhara.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rahul-24Kumar/vasundhara/issues"
+  },
+  "homepage": "https://github.com/Rahul-24Kumar/vasundhara#readme",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "webpack": "^5.93.0"
   }
 }
-
