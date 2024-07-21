@@ -30,11 +30,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed. This project is com
 3. **Install dependencies:**
     npm install
 
-<<<<<<< HEAD
-4.   **Usage**
-=======
     **Usage**
->>>>>>> e73188c (Modified Package.json)
     To start the server in development mode with automatic restarts, use nodemon:
 
     npm run dev
