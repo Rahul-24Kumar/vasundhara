@@ -1,20 +1,18 @@
-import express from "express";
-import connectDB from "./config/database.js";
-
-import dotenv from "dotenv";
-
-dotenv.config();
+import 'dotenv/config';
+import express from 'express';
+import connectDB from './config/database.js';
+import userRoutes from './routes/userRoutes.js';
+import { errorHandler } from './middlewares/middleware.js';
 
 const app = express();
 
 connectDB();
 
-const port = process.env.PORT || 3000;
+app.use(express.json());
 
-app.get("/", async (req, res) => {
-    res.send("Hey, My dove!");
-})
+app.use('/api', userRoutes);
 
-app.listen(port, () => {
-    console.log("Server is running:", `${port}`);
-})
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
