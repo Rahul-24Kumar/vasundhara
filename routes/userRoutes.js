@@ -5,8 +5,8 @@ import { protect } from '../middlewares/middleware.js';
 
 const router = express.Router();
 
-router.get('/get', protect, getUsers); // Protect the getUsers route
-router.post('/create', createUser);
-router.post('/login', loginUser);
+router.get('/viewAll', protect, getUsers); // Protect the getUsers route
+router.post('/auth/register', createUser);
+router.post('/auth/login', loginUser);
 
 export default router;
