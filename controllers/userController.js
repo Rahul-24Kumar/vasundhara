@@ -4,7 +4,7 @@ import { hashPassword, correctPassword, generateAuthToken } from '../utils/helpe
 export const getUsers = async (req, res) => {
     try {
 
-        const users = await User.find().select({_id:0, name:1, email: 1});
+        const users = await User.find().select({ _id: 0, name: 1, email: 1 });
 
         return res.status(200).json(users);
 
@@ -17,8 +17,6 @@ export const createUser = async (req, res) => {
     try {
 
         const { name, email, password } = req.body;
-        console.log(req.body)
-
 
         const ifEmailAlreadyExist = await User.findOne({ email });
 
@@ -36,6 +34,8 @@ export const createUser = async (req, res) => {
 
         await user.save();
 
+        console.log(user);
+        
         const token = generateAuthToken(user._id);
 
         return res.status(201).json({ user, token });
