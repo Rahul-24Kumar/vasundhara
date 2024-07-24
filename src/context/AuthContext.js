@@ -23,11 +23,17 @@ const AuthProvider = ({ children }) => {
 
     const userData = response.data;
 
+    console.log(userData)
+
     setUser(userData);
 
     localStorage.setItem('user', JSON.stringify(userData));
 
   };
+
+  console.log(user);
+
+
 
   const register = async (name, email, password) => {
 
@@ -53,7 +59,7 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={{ user, login, register, logout }}>
       {children}
     </AuthContext.Provider>
-    
+
   );
 };
 

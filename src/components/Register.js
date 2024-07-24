@@ -14,7 +14,7 @@ const Register = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Register</h2>
+      {/* <h2>Register</h2> */}
       <input
         type="text"
         placeholder="Name"

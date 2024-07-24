@@ -1,19 +1,25 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import Navbar from './Navbar';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(email, password);
+
+
   };
+
+  console.log(email, password);
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+      {/* <h2>Login</h2> */}
       <input
         type="email"
         placeholder="Email"
