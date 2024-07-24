@@ -1,25 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import Modal from './Modal';
+import Login from './Login';
+import Register from './Register';
 
 const Navbar = () => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLoginModal(true);
+  };
+
+  const handleRegisterClick = () => {
+    setShowRegisterModal(true);
+  };
+
+  const handleCloseLoginModal = () => {
+    setShowLoginModal(false);
+  };
+
+  const handleCloseRegisterModal = () => {
+    setShowRegisterModal(false);
+  };
+
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-cyan-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-lg font-semibold">Brand</Link>
+        <img src="/images/vasu_logo.svg" alt="Company Logo" className="h-10" />
         <div className="hidden md:flex space-x-4">
-          <Link to="/" className="text-gray-300 hover:text-white">Home</Link>
-          <Link to="/login" className="text-gray-300 hover:text-white">Login</Link>
-          <Link to="/register" className="text-gray-300 hover:text-white">Signup</Link>
-          <Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link>
-        </div>
-        <div className="md:hidden">
-          <button className="text-gray-300 hover:text-white focus:outline-none focus:text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </button>
+          <a href="/" className="text-gray-300 hover:text-black">Home</a>
+          <button onClick={handleLoginClick} className="text-gray-300 hover:text-black">Login</button>
+          <button onClick={handleRegisterClick} className="text-gray-300 hover:text-black">Signup</button>
+          <a href="/contact" className="text-gray-300 hover:text-black">Contact</a>
         </div>
       </div>
+      <Modal show={showLoginModal} onClose={handleCloseLoginModal}>
+        <Login onClose={handleCloseLoginModal} />
+      </Modal>
+      <Modal show={showRegisterModal} onClose={handleCloseRegisterModal}>
+        <Register onClose={handleCloseRegisterModal} />
+      </Modal>
     </nav>
   );
 };
