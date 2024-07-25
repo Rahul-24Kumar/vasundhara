@@ -13,7 +13,7 @@ const Register = ({ onClose }) => {
     e.preventDefault();
     try {
       await register(name, email, password);
-      toast.success('Successfully registered!');
+      // toast.success('Successfully registered!');
       onClose(); // Close the modal on successful registration
     } catch (error) {
       toast.error('Failed to register. Please try again.');

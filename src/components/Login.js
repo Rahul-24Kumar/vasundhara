@@ -12,13 +12,15 @@ const Login = ({ onClose }) => {
     e.preventDefault();
     try {
       await login(email, password);
-      toast.success('Successfully logged in!');
+      // toast.success('Successfully logged in!');
       onClose(); // Close the modal on successful login
     } catch (error) {
       toast.error('Failed to login. Please try again.');
     }
   };
 
+  console.log(email, password);
+  
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <h2 className="text-lg font-medium leading-6 text-gray-900">Login</h2>

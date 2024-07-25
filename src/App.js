@@ -7,6 +7,8 @@ import Register from './components/Register';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ContactUs from './components/ContactUs';
+
 import { AuthContext } from './context/AuthContext';
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
             <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
             <Route path="*" element={<Navigate to="/" />} />
+            <Route path= "/contact" element = {<ContactUs/>} />
           </Routes>
         </main>
         <Footer />
