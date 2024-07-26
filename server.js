@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors'; // Import the cors package
 import connectDB from './config/database.js';
 import userRoutes from './routes/userRoutes.js';
+// import contactUsRoutes from './routes/contactUsRoutes.js';
 import { errorHandler } from './middlewares/middleware.js';
 
 const app = express();
