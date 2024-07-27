@@ -41,7 +41,7 @@ const Navbar = () => {
           {user ? (
             <div className="relative group">
               <button className="text-gray-300 hover:text-white flex items-center space-x-2">
-                {/* <span>{user.user.name || user.user.email}</span> */}
+                <span>{user.user.name || user.user.email}</span>
                 <img src="/images/user-icon.png" alt="User Icon" className="w-6 h-6 rounded-full" />
               </button>
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20 hidden group-hover:block">
