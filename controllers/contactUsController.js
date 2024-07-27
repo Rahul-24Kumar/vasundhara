@@ -1,10 +1,10 @@
-import contactUs from "../models/contactUsModel";
+import ContactUs from '../models/contactModel.js'; 
 
 export const contactMessage = async (req, res) => {
     try {
         const { name, email, message } = req.body;
         
-        const newMessage = new contactUs({
+        const newMessage = new ContactUs({
             name: name,
             email: email,
             message: message

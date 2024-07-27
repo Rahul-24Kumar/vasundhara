@@ -4,8 +4,8 @@ const contactUsSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     message: { type: String, required: true }
-});
+}, { timestamps: true });
 
-const contactUs = mongoose.model('ContactUs', contactUsSchema);
+const ContactUs = mongoose.model('ContactUs', contactUsSchema);
 
-export default contactUs;
+export default ContactUs;

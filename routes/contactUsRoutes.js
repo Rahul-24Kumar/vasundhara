@@ -1,5 +1,6 @@
 import express from 'express';
-import { contactMessage } from '../controllers/contactUsController';
+
+import { contactMessage } from '../controllers/contactUsController.js';
 
 const router = express.Router();
 
