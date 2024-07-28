@@ -5,6 +5,7 @@ import connectDB from './config/database.js';
 import userRoutes from './routes/userRoutes.js';
 import contactUsRoutes from './routes/contactUsRoutes.js';
 import { errorHandler } from './middlewares/middleware.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use(express.json());
 // Set up routes
 app.use('/api', userRoutes);
 app.use('/api', contactUsRoutes);
+
+app.use('/api', authRoutes)
 // Error handling middleware
 app.use(errorHandler);
 
