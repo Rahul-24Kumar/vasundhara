@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
 
 import { AuthContext } from './context/AuthContext';
+import RequestPasswordReset from './components/RequestPasswordReset';
+import ResetPassword from './components/ResetPassword';
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -24,7 +26,9 @@ const App = () => {
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
             <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
             <Route path="*" element={<Navigate to="/" />} />
-            <Route path= "/contact" element = {<ContactUs/>} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/request-password-reset" element={<RequestPasswordReset/>} />
+            <Route path="/reset-password/:token" element={<ResetPassword/>} />
           </Routes>
         </main>
         <Footer />

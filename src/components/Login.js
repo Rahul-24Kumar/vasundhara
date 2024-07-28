@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Login = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const { login } = useContext(AuthContext);
 
@@ -12,15 +15,16 @@ const Login = ({ onClose }) => {
     e.preventDefault();
     try {
       await login(email, password);
-      // toast.success('Successfully logged in!');
       onClose(); // Close the modal on successful login
     } catch (error) {
       toast.error('Failed to login. Please try again.');
     }
   };
 
-  console.log(email, password);
-  
+  const handleForgotPassword = () => {
+    navigate('/request-password-reset');
+  };
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <h2 className="text-lg font-medium leading-6 text-gray-900">Login</h2>
@@ -58,6 +62,15 @@ const Login = ({ onClose }) => {
           className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
         >
           Login
+        </button>
+      </div>
+      <div className="flex justify-between items-center">
+        <button
+          type="button"
+          onClick={handleForgotPassword}
+          className="text-sm text-green-600 hover:underline focus:outline-none"
+        >
+          Forgot Password?
         </button>
       </div>
     </form>
